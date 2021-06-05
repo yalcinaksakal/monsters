@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
-const Search = ({ searchHandler }) => {
+import styles from "./Search.module.css";
+const Search = ({ searchHandler, placeholder }) => {
   const [filter, setFilter] = useState("");
   const [lastSearchedText, setLastSearchedText] = useState("");
 
@@ -8,7 +8,6 @@ const Search = ({ searchHandler }) => {
     const inputTimer = setTimeout(() => {
       // filter's value is the value .5s ago, compare it with the current value and decide whether user stopped writing or not
       if (filter !== lastSearchedText) {
-        console.log("searching");
         setLastSearchedText(filter);
         searchHandler(filter.toLowerCase());
       }
@@ -16,14 +15,13 @@ const Search = ({ searchHandler }) => {
     return () => clearTimeout(inputTimer);
   }, [filter, searchHandler, lastSearchedText]);
   return (
-    <div>
-      <input
-        value={filter}
-        onChange={e => setFilter(e.target.value.trim())}
-        type="search"
-        placeholder="Search monsters"
-      />
-    </div>
+    <input
+      className={styles.search}
+      value={filter}
+      onChange={e => setFilter(e.target.value.trim())}
+      type="search"
+      placeholder={placeholder}
+    />
   );
 };
 export default Search;
