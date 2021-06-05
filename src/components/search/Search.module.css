@@ -1,8 +1,9 @@
 .search {
   -webkit-appearance: none;
+  line-height: 30px;
   margin: 20px 0;
   outline: none;
-  padding: 5px 10px;
+  padding: 0px 10px;
   width: 150px;
   border-radius: 5px;
   border: 1px solid rgb(111, 145, 59);

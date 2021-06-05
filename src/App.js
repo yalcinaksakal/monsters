@@ -31,9 +31,10 @@ function App() {
 
   return (
     <div className="App">
+      <h1>MONSTERS</h1>
       <Search searchHandler={searchHandler} placeholder="Search monsters" />
       {isLoading ? (
-        <p>Loading monsters...</p>
+        <p className="bump">Loading monsters...</p>
       ) : (
         <Cards monsters={filteredMonsters} />
       )}
